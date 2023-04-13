@@ -1,0 +1,32 @@
+@import "../../../global.scss";
+
+$header-color: $light-text-color;
+
+.nav_links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav_item {
+    color: $header-color;
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 15px;
+    padding: 10px 15px;
+    border-radius: 25px;
+    &:hover {
+        color: grey;
+    }
+}
+
+.nav_item_active {
+    color: $dark-text-color;
+    background-color: $dark-background-color;    
+}
+
+@media only screen and (max-width: 600px) {
+    .nav_item {
+      margin-right: 5px;
+    }
+  }

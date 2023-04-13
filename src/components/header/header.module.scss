@@ -1,0 +1,51 @@
+@import "../../global.scss";
+
+$header-height: 70px;
+
+.header {
+  width: 100%;
+  background-color: $accent-color;
+  height: $header-height;
+}
+
+.header_wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 5px 0;
+  justify-content: space-between;
+  color: $dark-text-color;
+}
+
+.logo_home_link {
+  display: flex;
+}
+
+.header_logo {
+  height: 50px;
+  margin-right: 20px;
+  .logo_circle {
+    fill: black;
+  }
+  .logo_shadow {
+    fill: #231f20;
+  }
+  .logo_biker {
+    fill: $accent-color;
+  }
+
+  .logo_biker_polyline {
+    fill: none;
+    stroke: $accent-color;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 13px;
+  }
+  .header_logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+}

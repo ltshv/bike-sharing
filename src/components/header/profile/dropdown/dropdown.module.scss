@@ -1,0 +1,42 @@
+@import '../../../../global.scss';
+@import '../../header.module.scss';
+
+.profile_dropdown {
+    width: 20px;
+
+    .profile_dropdown_arrow {
+      svg {
+        -webkit-transition: 300ms ease all;
+        -moz-transition: 300ms ease all;
+        -o-transition: 300ms ease all;
+        transition: 300ms ease all;
+        path {
+            fill: $dark-background-color;
+        }
+      }
+    }
+  }
+
+  .profile_dropdown_box {
+    background-color: $accent-color;
+    border-radius: 10px;
+    position: absolute;
+    top: $header-height;
+    right: 20px;
+    z-index: 100;
+    color: $dark-background-color;
+  
+    .profile_options {
+      list-style: none;
+      padding: 5px 30px;
+      margin: 5px;
+  
+      .profile_options_item {
+      padding: 7px 0;
+      border: 2px solid transparent;
+        &:hover {
+          border-bottom: 2px solid;
+        }
+      }
+    }
+  }

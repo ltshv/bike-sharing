@@ -1,0 +1,34 @@
+@import "../../../global.scss";
+
+.profile_box {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.profile_icon {
+  height: 50%;
+  margin-right: 15px;
+  g {
+    fill: $dark-background-color;
+  }
+}
+
+.auth_link {
+  text-decoration: none;
+  color: $dark-background-color;
+  &:hover {
+    color: grey;
+  }
+}
+.auth_link_active {
+  color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile_icon {
+    margin-right: 5px;
+  }
+}

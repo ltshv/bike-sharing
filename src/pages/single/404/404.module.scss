@@ -1,0 +1,9 @@
+@import '../../../global.scss';
+
+.not_found_container {
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
