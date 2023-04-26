@@ -4,8 +4,10 @@ $header-height: 70px;
 
 .header {
   width: 100%;
-  background-color: $accent-color;
+  //background-color: $dark-box-color;
   height: $header-height;
+  z-index: 10;
+  position: relative;
 }
 
 .header_wrapper {
@@ -19,33 +21,69 @@ $header-height: 70px;
 
 .logo_home_link {
   display: flex;
+  align-items: center;
+  .app_title {
+    font-weight: 700;
+    padding: 10px 10px 10px 0px;
+    &:hover {
+      color: $dark-text-color;
+    }
+  }
+
+  .header_logo {
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 100%;
+    &:hover {
+      background-color: $hover-color;
+    }
+    .logo_circle {
+      fill: none;
+    }
+    .logo_shadow {
+      fill: #231f20;
+    }
+    .logo_biker {
+      fill: $accent-color;
+    }
+
+    .logo_biker_polyline {
+      fill: none;
+      stroke: $accent-color;
+    }
+  }
 }
 
-.header_logo {
-  height: 50px;
-  margin-right: 20px;
-  .logo_circle {
-    fill: black;
-  }
-  .logo_shadow {
-    fill: #231f20;
-  }
-  .logo_biker {
-    fill: $accent-color;
-  }
+.logo_home_link_active {
+  // .app_title, .app_title:hover {
+  //   background-color: $hover-color;
+  // }
+  .header_logo {
+    &:hover {
+      background-color: inherit;
+    }
+    .logo_circle {
+      fill: $accent-color;
+    }
 
-  .logo_biker_polyline {
-    fill: none;
-    stroke: $accent-color;
+    .logo_biker {
+      fill: $dark-background-color;
+    }
+
+    .logo_biker_polyline {
+      stroke: $dark-background-color;
+    }
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $mobile-width) {
   .header {
     font-size: 13px;
   }
-  .header_logo {
-    height: 40px;
-    margin-right: 10px;
+  .logo_home_link {
+    .header_logo {
+      height: 40px;
+      margin-right: 10px;
+    }
   }
 }

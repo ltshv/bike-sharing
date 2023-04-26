@@ -1,16 +1,15 @@
 @import './global.scss';
 
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: $dark-background-color;
   color: $dark-text-color
 }
 
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
 }
@@ -18,5 +17,15 @@ body {
 a {
   color: $accent-color;
   text-decoration: none;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 

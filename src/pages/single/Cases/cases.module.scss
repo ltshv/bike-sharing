@@ -1,0 +1,15 @@
+@import '../../../global.scss';
+
+.list_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bike_type {
+    font-size: 13px;
+}
+
+.bike_fill {
+    fill: $dark-background-color;
+}

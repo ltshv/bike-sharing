@@ -1,6 +1,4 @@
 import { Officer } from "./officer/officer";
-import { Case } from "../dynamic/case/case";
+import { Case } from "./case/case";
 
-export {
-    Officer, Case
-}
+export { Officer, Case };

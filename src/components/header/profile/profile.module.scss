@@ -5,13 +5,32 @@
   height: 100%;
   align-items: center;
   font-weight: 700;
-  margin-left: 10px;
 }
 
-.profile_icon {
-  height: 50%;
-  margin-right: 15px;
-  g {
+.profile_icon_box {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  .profile_icon {
+    height: 60%;
+    fill: $accent-color;
+  }
+}
+
+[isactive="true"],
+[isactive="true"]:hover {
+  background-color: $accent-color;
+  .profile_icon {
     fill: $dark-background-color;
   }
 }
@@ -27,8 +46,9 @@
   color: grey;
 }
 
-@media only screen and (max-width: 600px) {
-  .profile_icon {
-    margin-right: 5px;
-  }
+@media only screen and (max-width: $mobile-width) {
+.profile_icon_box {
+  height: 40px;
+  width: 40px;
+}
 }

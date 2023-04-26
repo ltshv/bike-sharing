@@ -1,7 +1,15 @@
 //dark mode colors
 $accent-color: rgb(208, 245, 211);
+$revert-accent-color: rgb(251, 208, 208);
+$middle-accent-color: rgb(249, 251, 208);
+$hover-color: rgba(255,255,255,0.1);
 $dark-background-color: rgb(68, 68, 68);
+$dark-box-color: rgba(140, 140, 140, 0.5);
 $dark-text-color: rgb(230, 230, 230);
+$mobile-width: 600px;
+$footer-color: rgb(85, 85, 85);
+$footer-height: 70px;
+$header-height: 70px;
 
 //light mode colors
 $light-background-color: rgb(230, 230, 230);

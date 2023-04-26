@@ -1,71 +1,66 @@
-import React, { useEffect, useState } from "react";
-import { Formik, Field, Form } from "formik";
+import React, { useEffect } from "react";
 import css from "../auth.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getSignIn } from "../../../../storage/reducers/auth/auth-actions";
+import { fetchSignInData } from "../../../../storage/reducers/auth/actions/signIn";
+import {
+  LOCAL_AUTH_DATA,
+  LOCAL_AUTH_TOKEN,
+  setLocalData,
+} from "../../../../hooks/useLocalStorage";
+import { useNavigate } from "react-router";
+import { SignInForm } from "../../../../components/forms/signInForm";
+import { AuthBox } from "../authBox";
+import { resetError } from "../../../../storage/reducers/auth/actions/authSlice";
+import { PageSideContainer } from "../../../../components/covers/auth/auth-cover";
+import signInImage from "../../../../assets/pagesCovers/signIn.avif";
+import { MainLoader } from "../../../../components/loaders/mainLoader";
+import { Section } from "../../../../components/containers/section";
 
-export const SingIn = (props) => {
-  const [isToken, setisToken] = useState(false);
+export const SignIn = (props) => {
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.authData.user) || null;
-  let tokenData = useSelector((state) => state.authData.token) || null;
+  const navigate = useNavigate();
+  const { isAuth } = useSelector((state) => state.auth);
+  const userData = useSelector((state) => state.auth.authData.user);
+  const tokenData = useSelector((state) => state.auth.authData.token);
 
   useEffect(() => {
-    setisToken(Boolean(tokenData));
-  },[tokenData]);
+    isAuth && navigate("/account");
+  }, [isAuth, navigate]);
+
+  useEffect(() => {
+    if (isAuth) {
+      setLocalData(LOCAL_AUTH_TOKEN, tokenData);
+      setLocalData(LOCAL_AUTH_DATA, userData);
+    }
+  }, [tokenData, isAuth, userData]);
 
   const handleSingIn = (values) => {
-    dispatch(getSignIn(values.email, values.password));
+    dispatch(
+      fetchSignInData({ email: values.email, password: values.password })
+    );
   };
 
-  const { setSignUp, signUp } = props;
+  const handleSignUpRedirect = () => {
+    navigate("/sign-up");
+    dispatch(resetError());
+  };
 
-  return (
-    <div className={css.auth_box}>
-      {!isToken && (
-        <div>
-          <h1>Вход</h1>
-          <Formik
-            initialValues={{
-              email: "",
-              password: "",
-            }}
-            onSubmit={(values) => {
-              handleSingIn(values);
-            }}
-          >
-            <Form>
-              <label htmlFor="email">Почта</label>
-              <Field
-                id="email"
-                name="email"
-                placeholder="Введите почту"
-                type="email"
-                autoComplete="username"
-              />
-
-              <label htmlFor="password">Пароль</label>
-              <Field
-                id="password"
-                name="password"
-                placeholder="Введите пароль"
-                type="password"
-                autoComplete="current-password"
-              />
-              <button type="submit">Войти</button>
-            </Form>
-          </Formik>
-          У вас ещё нет аккаунта?{" "}
-          <span className={css.sign_up_text} onClick={() => setSignUp(!signUp)}>
-            Зарегистрироваться!
-          </span>
-        </div>
-      )}
-      {isToken && (
-        <div className={css.auth_complete_box}>
-          Добрый день,{userData.firstName}
-        </div>
-      )}
-    </div>
+  return !tokenData ? (
+    <Section>
+      <PageSideContainer cover={signInImage}>
+        <AuthBox title="Вход">
+          <SignInForm handleSingIn={handleSingIn} />
+          <div className={css.sign_up_text_wrapper}>
+            У вас ещё нет аккаунта?
+            <br />
+            <span className={css.sign_up_text} onClick={handleSignUpRedirect}>
+              Зарегистрироваться!
+            </span>
+          </div>
+        </AuthBox>
+      </PageSideContainer>
+    </Section>
+  ) : (
+    <MainLoader />
   );
 };

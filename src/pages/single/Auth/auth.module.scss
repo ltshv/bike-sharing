@@ -1,6 +1,35 @@
-@import '../../../global.scss';
+@import "../../../global.scss";
 
 .sign_up_text {
-    text-decoration: underline;
-    color: $accent-color;
+  text-decoration: underline;
+  color: $accent-color;
+  cursor: pointer;
+}
+
+.auth_box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  & > * {
+    width: 100%;
+  }
+
+  .sign_up_text_wrapper {
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.loading_box {
+  color: $accent-color;
+}
+
+.error_box, .loading_box {
+  text-align: center;
+  margin: 10px;
 }

@@ -1,0 +1,16 @@
+@import '../../global.scss';
+
+.page_title {
+    display: flex;
+    justify-content: space-between;
+
+    & > *:first-child {
+        margin-right: 5px;
+    }
+}
+
+.add_button {
+    padding: 10px 15px;
+    min-width: 110px;
+
+}

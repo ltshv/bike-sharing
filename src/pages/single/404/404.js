@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
-import css from './404.module.scss'
+import css from "./404.module.scss";
+import { Section } from "../../../components/containers/section";
 
 export const NotFound = () => {
   return (
-    <div className={css.not_found_container}>
-      <h1>Oops! You seem to be lost.</h1>
-      <p>Here are some helpful links:</p><br/>
-      <Link to="/">Главная</Link>
-      <Link to="/report">Сообщить о краже велосипеда</Link>
-    </div>
+    <Section>
+      <div className={css.not_found_container}>
+        <h1>Упс! Кажется вы потерялись.</h1>
+        <p>Вот некоторые полезные ссылки:</p>
+        <br />
+        <Link to="/">Главная</Link>
+        <Link to="/report">Сообщить о краже велосипеда</Link>
+      </div>
+    </Section>
   );
 };

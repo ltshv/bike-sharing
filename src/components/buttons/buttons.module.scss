@@ -1,0 +1,46 @@
+@import "../../global.scss";
+
+button {
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  overflow: hidden;
+  .button_children {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & > * {
+      transform: scale(0.97);
+    }
+
+    //background-color: $hover-color;
+  }
+
+  &:disabled {
+    cursor: inherit;
+    background-color: $hover-color;
+  }
+}
+
+.accent_button {
+  background-color: $accent-color;
+
+  &:hover {
+    //color: grey;
+  }
+}
+
+.non_accent_button {
+  background-color: $dark-box-color;
+  color: $accent-color;
+  &:hover {
+    //color: $dark-text-color;
+  }
+}

@@ -1,0 +1,200 @@
+@import "../../global.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+
+  & > * {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  .form_buttons {
+    flex-basis: auto;
+
+    button {
+      padding: 10px 15px;
+    }
+  }
+
+  input:disabled,
+  select:disabled,
+  input[type="checkbox"] {
+    background-color: $hover-color;
+  }
+
+  input,
+  select,
+  option,
+  input[type="checkbox"] {
+    background-color: initial;
+    color: $dark-text-color;
+    -webkit-text-fill-color: $dark-text-color;
+    border: 3px solid rgba(1, 1, 1, 0);
+    order: 2;
+    border-radius: 0 0 15px 15px;
+    font-size: 13px;
+  }
+
+  input::placeholder,
+  input:-ms-input-placeholder,
+  input::-ms-input-placeholder,
+  ::-webkit-input-placeholder {
+    color: white !important;
+    opacity: 1 !important;
+  }
+}
+
+label {
+  font-weight: 700;
+  order: 1;
+}
+
+.field_validate {
+  order: 3;
+  font-size: 13px;
+  text-decoration: wavy;
+  color: $revert-accent-color;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.good_validate {
+  color: $accent-color;
+}
+
+.error_message {
+  text-align: center;
+  color: $revert-accent-color;
+}
+
+.disabled {
+  input[required] + label:after,
+  select[required] + label:after {
+    display: none;
+  }
+}
+
+input[required] + label:after,
+select[required] + label:after {
+  content: " *";
+  color: $accent-color;
+}
+
+.form_item {
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-box-color;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+
+  & > * {
+    padding: 10px;
+  }
+
+  input,
+  label,
+  input[type="checkbox"],
+  select {
+    padding: 10px;
+    -webkit-padding-start: 10px;
+  }
+
+  label {
+    background-color: $hover-color;
+  }
+
+  input[type="checkbox"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 10px;
+    margin: 15px;
+    border: 0.15em solid $accent-color;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked {
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "✓";
+    font-size: 1.5em;
+    color: $dark-background-color;
+    position: absolute;
+    right: 2px;
+    top: -2px;
+  }
+
+  input[type="checkbox"]:disabled {
+    border-color: $dark-box-color;
+    background-color: $dark-box-color;
+  }
+  
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  //@extend input;
+  border: 3px solid $accent-color;
+  -webkit-text-fill-color: $accent-color;
+  //-webkit-box-shadow: ;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea:focus,
+input:focus,
+input:-webkit-autofill:focus,
+select:focus {
+  outline: none;
+  border: 3px solid $accent-color;
+}
+
+select:disabled {
+  appearance: none;
+}
+
+.form_buttons {
+  display: flex;
+  justify-content: space-around;
+
+  & > * {
+    margin-right: 5px;
+  }
+}
+
+.auth_button {
+  padding: 10px 15px;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  form {
+    padding: 15px 0;
+
+    & > * {
+      width: 100%;
+
+      margin-right: 0;
+    }
+  }
+}
+

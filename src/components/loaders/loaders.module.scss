@@ -1,0 +1,47 @@
+@import '../../global.scss';
+
+.loader_container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $hover-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+}
+.loader{
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+.loader span{
+    width: 50px;
+    height: 50px;
+/*     background-color: #bbb; */
+    border-radius: 50%;
+    border: 10px solid $dark-box-color;
+    border-top: 10px solid $accent-color;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

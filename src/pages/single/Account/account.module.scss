@@ -1,0 +1,21 @@
+@import '../../../global.scss';
+
+
+.account_container {
+    display: flex;
+    flex-direction: column;
+    h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+.sign_out_button {
+    padding: 10px 15px;
+    max-width: 150px;
+    z-index: 3;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}

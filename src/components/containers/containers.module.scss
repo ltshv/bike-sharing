@@ -1,0 +1,25 @@
+.container {
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1200px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    margin: 0 15px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .container {
+    margin: 0 10px;
+  }
+
+  .section {
+    margin-bottom: 15px;
+  }
+}

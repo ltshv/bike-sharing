@@ -1,0 +1,159 @@
+@import "../../../global.scss";
+
+.h2 {
+  font-size: 30px;
+  padding: 5px;
+  border-bottom: 3px solid $accent-color;
+}
+
+.hero {
+  width: 100%;
+  min-height: 500px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  //padding: 40px;
+
+  h1 {
+    position: absolute;
+    font-size: 3.5rem;
+    //text-decoration: underline $accent-color 10px;
+    bottom: 0;
+  }
+
+  .hero_image {
+    position: absolute;
+    top: -50px;
+    right: -75px;
+    max-height: 100%;
+  }
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+
+  .benefits_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    color: $dark-background-color;
+
+    & > * {
+      margin-right: 10px;
+    }
+    & > *:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  .benefits_box_item {
+    max-width: 20%;
+    min-height: 100px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.about {
+  @extend .benefits;
+
+  h2 {
+  }
+
+  p {
+    font-size: 15px;
+    text-align: justify;
+  }
+}
+
+.report {
+  align-items: flex-start;
+  min-height: 200px;
+  padding: 40px;
+  .report_header_text {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .hero_image {
+    max-height: 100%;
+    right: -30px;
+  }
+
+  .report_button {
+    padding: 15px 50px;
+  }
+
+  .report_header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .hero {
+    min-height: 250px;
+    padding: 0;
+
+    .hero_image {
+      right: -45px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      //text-decoration: underline $accent-color 5px;
+      bottom: 0;
+    }
+
+    .about {
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .benefits {
+    .benefits_wrapper {
+      justify-content: space-around;
+      & > * {
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+      .benefits_box_item {
+        max-width: 45%;
+      }
+    }
+  }
+
+  .report {
+    .report_header_text {
+      font-size: 20px;
+    }
+
+    .hero_image {
+      top: -40px;
+      max-width: 100%;
+      right: -5px;
+    }
+
+    .report_header {
+      position: absolute;
+      bottom: 0;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

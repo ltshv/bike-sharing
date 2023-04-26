@@ -1,0 +1,17 @@
+@import '../../../global.scss';
+
+.officers_list_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.page_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add_button {
+    padding: 10px 15px;
+}
